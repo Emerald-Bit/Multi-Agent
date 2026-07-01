@@ -1,9 +1,6 @@
 # Multi-Agent Research System
 
-
-<video src="https://github.com/user-attachments/assets/bdee2400-959c-4531-b6d0-849f4e8b75a6" controls width="700"></video>
-
-
+<video src="https://github.com/user-attachments/assets/3fada51f-6d1a-4b6e-876a-aa5bea5b7691" controls width="700"></video>
 
 **The Problem**
 
@@ -37,3 +34,11 @@ The solution provided a practical internal research layer that continuously impr
 * **Feedback Lessons Memory:** After a completed run, the assistant systematically extracted reusable lessons from reviewer and human feedback. This ensured the system learned and adapted over time by remembering repeated corrections, preferred output styles, project-specific decisions, and recurring failure patterns.
 * **Operational Guardrails:** The execution agent included model-call limits, tool-call limits, retry middleware, summarisation middleware, and recursion limits. For the SME, this was critical because it prevented uncontrolled agent loops from burning API budgets, stopped overly aggressive web scraping, and ensured clean, concise outputs.
 * **External Research and Lead Discovery Tools:** The assistant searched the web with Exa, scraped pages with Firecrawl, and leveraged Hunter.io for domain and contact discovery. This automated high-value SME use cases like competitor research, lead sourcing, market mapping, supplier research, and proposal preparation.
+
+**Additional Demo Images**
+
+The graph:
+<img width="1150" height="1261" alt="Image" src="https://github.com/user-attachments/assets/bb10eb59-4ed4-4afe-867d-e70a4cf5b66e" />
+
+Demo Output and Learnings to be sent to the lessons learned RAG (for continous self improvement)
+<img width="1251" height="1080" alt="Image" src="https://github.com/user-attachments/assets/ba19c376-c729-46dd-8223-17d89667c643" />
