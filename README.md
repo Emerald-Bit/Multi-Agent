@@ -4,9 +4,9 @@
 
 **The Problem**
 
-SMEs often rely on scattered knowledge across documents, websites, notes, emails, CRM exports, staff memory, and ad hoc research. This created a familiar problem: valuable information existed, but it was slow to find, hard to trust, and easy to lose when people moved between projects or teams.
+The SME I worked with had useful knowledge spread across documents, websites, notes, emails, CRM exports and staff memory. The information was there, but finding it was slow. Verifying it took extra effort, and important context was easy to lose when people moved between tasks or projects.
 
-For smaller teams, this became a productivity bottleneck. Staff spent too much time repeating research, checking sources manually, rewriting similar outputs, and trying to remember previous decisions. Generic chatbots helped with surface-level answers, but they did not reliably follow company context, preserve feedback, or provide controlled workflows for higher-stakes business research.
+This created a clear productivity issue. Staff were repeating research, checking the same sources manually and rewriting similar outputs from scratch. Generic chatbots helped with simple questions, but they did not reliably follow company context, retain feedback or support controlled workflows for more important business research.
 
 **The Solution**
 
@@ -34,11 +34,13 @@ The solution provided a practical internal research layer that continuously impr
 * **Feedback Lessons Memory:** After a completed run, the assistant systematically extracted reusable lessons from reviewer and human feedback. This ensured the system learned and adapted over time by remembering repeated corrections, preferred output styles, project-specific decisions, and recurring failure patterns.
 * **Operational Guardrails:** The execution agent included model-call limits, tool-call limits, retry middleware, summarisation middleware, and recursion limits. For the SME, this was critical because it prevented uncontrolled agent loops from burning API budgets, stopped overly aggressive web scraping, and ensured clean, concise outputs.
 * **External Research and Lead Discovery Tools:** The assistant searched the web with Exa, scraped pages with Firecrawl, and leveraged Hunter.io for domain and contact discovery. This automated high-value SME use cases like competitor research, lead sourcing, market mapping, supplier research, and proposal preparation.
+* **Reusable external knowledge base:** Web content scraped with Firecrawl is stored in an external RAG knowledge base, allowing useful research material to be retrieved and reused across future work.
+
 
 **Additional Demo Images**
 
 The graph:
 <img width="1150" height="1261" alt="Image" src="https://github.com/user-attachments/assets/bb10eb59-4ed4-4afe-867d-e70a4cf5b66e" />
 
-Demo Output and Learnings to be sent to the lessons learned RAG (for continous self improvement)
+Demo Output and Learnings to be sent to the lessons learned RAG (for continuous self improvement)
 <img width="1251" height="1080" alt="Image" src="https://github.com/user-attachments/assets/ba19c376-c729-46dd-8223-17d89667c643" />
