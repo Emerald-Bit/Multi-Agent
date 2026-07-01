@@ -1,16 +1,23 @@
-## The Problem
+# Multi-Agent Research System
+
+
+<video src="https://github.com/user-attachments/assets/bdee2400-959c-4531-b6d0-849f4e8b75a6" controls width="700"></video>
+
+
+
+**The Problem**
 
 SMEs often rely on scattered knowledge across documents, websites, notes, emails, CRM exports, staff memory, and ad hoc research. This created a familiar problem: valuable information existed, but it was slow to find, hard to trust, and easy to lose when people moved between projects or teams.
 
 For smaller teams, this became a productivity bottleneck. Staff spent too much time repeating research, checking sources manually, rewriting similar outputs, and trying to remember previous decisions. Generic chatbots helped with surface-level answers, but they did not reliably follow company context, preserve feedback, or provide controlled workflows for higher-stakes business research.
 
-## The Solution
+**The Solution**
 
 To address this, I built and deployed a multi-agent research assistant tailored for SME workflows using LangGraph and Retrieval-Augmented Generation (RAG). The system successfully turned rough business questions into structured research workflows: it optimised the request, loaded relevant company context, retrieved prior lessons, created a plan, paused for human approval, executed the work with tools, reviewed the output, and asked for final human sign-off before saving reusable feedback.
 
 The solution provided a practical internal research layer that continuously improved over time, while keeping humans firmly in control of planning and final output quality. The architecture included dedicated optimiser, planner, executor, reviewer, human review, skill-loading, context-loading, and feedback extraction nodes.
 
-## Core Tech Stack
+**Core Tech Stack**
 
 * **AI / Agent Orchestration:** LangGraph, LangChain, OpenAI, Anthropic, Google Gemini, Ollama/Qwen support.
 * **RAG / Memory:** Chroma, OpenAI text-embedding-3-small, SQLRecordManager, Flashrank reranking, MMR retrieval, SQLite checkpointing, Neon/Postgres long-term store.
@@ -18,7 +25,10 @@ The solution provided a practical internal research layer that continuously impr
 * **App / Interaction Layer:** Python application with LangGraph interrupts for human-in-the-loop review.
 * **Reliability / Control:** Pydantic structured outputs, typed LangGraph state, tool-call limits, model-call limits, retry middleware, summarisation middleware, recursion limits, human approval gates.
 
-## Key Features & Engineering Justifications
+
+
+
+**Key Features & Engineering Justifications**
 
 * **Human-in-the-Loop Workflow:** The assistant did not blindly execute user requests. It created a plan and success criteria, paused for human approval, executed only after approval, and then routed the output through reviewer and final human review stages. This eliminated the risk of low-quality or off-brand AI outputs being used directly.
 * **Multi-Agent Planning and Review:** The system separated planning, execution, and review into distinct nodes. This made the workflow significantly easier to debug, evaluate, and scale compared to a single all-purpose chatbot. The reviewer checked executor output against approved success criteria before it ever reached the user.
